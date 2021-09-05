@@ -1,5 +1,7 @@
 package br.com.santini.matchers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.hamcrest.Description;
@@ -10,13 +12,15 @@ import br.com.santini.utils.DataUtils;
 public class DataDiferencaDiasMatcher extends TypeSafeMatcher<Date> {
 
 	private Integer qtdDias;
-	
+
 	public DataDiferencaDiasMatcher(Integer qtdDias) {
 		this.qtdDias = qtdDias;
 	}
-	
-	public void describeTo(Description arg0) {
-		// TODO Auto-generated method stub
+
+	public void describeTo(Description description) {
+		Date dataEsperada = DataUtils.obterDataComDiferencaDias(qtdDias);
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+		description.appendText(format.format(dataEsperada));
 
 	}
 
