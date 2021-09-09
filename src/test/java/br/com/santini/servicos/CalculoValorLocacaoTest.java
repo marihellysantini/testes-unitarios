@@ -25,8 +25,6 @@ import br.com.santini.entidades.Locacao;
 import br.com.santini.entidades.Usuario;
 import br.com.santini.exceptions.FilmeSemEstoqueException;
 import br.com.santini.exceptions.LocadoraException;
-import br.com.santini.sesrvicos.LocacaoService;
-import br.com.santini.sesrvicos.SPCService;
 
 @RunWith(Parameterized.class)
 public class CalculoValorLocacaoTest {

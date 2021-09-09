@@ -1,4 +1,4 @@
-package br.com.santini.sesrvicos;
+package br.com.santini.servicos;
 
 import br.com.santini.exceptions.NaoPodeDividirPorZeroException;
 

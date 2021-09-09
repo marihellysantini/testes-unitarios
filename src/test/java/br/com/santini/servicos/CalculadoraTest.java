@@ -1,19 +1,28 @@
 package br.com.santini.servicos;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import br.com.santini.exceptions.NaoPodeDividirPorZeroException;
-import br.com.santini.sesrvicos.Calculadora;
+import br.com.santini.runners.ParallelRunner;
 
+@RunWith(ParallelRunner.class)
 public class CalculadoraTest {
 	
 	private Calculadora calc;
 	
 	@Before
-	public void setup(){
+	public void setup() {
 		calc = new Calculadora();
+		System.out.println("Iniciando...");
+	}
+	
+	@After
+	public void tearDown() {
+		System.out.println("Finalizando...");
 	}
 
 	@Test

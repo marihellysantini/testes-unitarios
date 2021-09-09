@@ -9,8 +9,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import br.com.santini.sesrvicos.Calculadora;
-
 public class CalculadoraMockTest {
 
 	@Mock
@@ -31,7 +29,7 @@ public class CalculadoraMockTest {
 
 		// Ordem inversa para que o java não execute o método havendo uma espectativa
 		// gerada:
-		Mockito.doReturn(8).when(calculadoraSpy.somar(1, 2));
+		Mockito.doReturn(8).when(calculadoraSpy).somar(1, 2);
 
 		// Caso desejar que o spy não chame o método real em alguma situação específica:
 		Mockito.doNothing().when(calculadoraSpy).imprime();
