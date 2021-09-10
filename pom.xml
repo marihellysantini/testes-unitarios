@@ -6,6 +6,36 @@
 	<artifactId>testesUnitarios</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+
+	<build>
+		<testSourceDirectory>scr</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<release>8</release>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18</version>
+				<configuration>
+					<includes>
+						<include>br/com/santini/**/*.java</include>
+					</includes>
+					<!-- <threadCount>3</threadCount> -->					
+					<useUnlimitedThreads>true</useUnlimitedThreads>
+					<parallel>all</parallel>
+				</configuration>
+			</plugin>			
+			
+		</plugins>
+	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -28,19 +58,4 @@
 			<version>1.6.6</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-				<configuration>
-					<release>8</release>
-					<verbose>true</verbose>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>

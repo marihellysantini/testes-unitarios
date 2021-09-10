@@ -26,7 +26,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -41,13 +40,13 @@ import br.com.santini.entidades.Locacao;
 import br.com.santini.entidades.Usuario;
 import br.com.santini.exceptions.FilmeSemEstoqueException;
 import br.com.santini.exceptions.LocadoraException;
-import br.com.santini.runners.ParallelRunner;
 import br.com.santini.utils.DataUtils;
 
-@RunWith(ParallelRunner.class)
+//@RunWith(ParallelRunner.class)
 public class LocacaoServiceTest {
 
-	@InjectMocks @Spy
+	@InjectMocks
+	@Spy
 	private LocacaoService service;
 
 	@Mock
@@ -66,12 +65,6 @@ public class LocacaoServiceTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		System.out.println("Incicializando 2...");
-	}
-	
-	@Before
-	public void tearDown() {
-		System.out.println("Finalizando 2...");
 	}
 
 	@Test
@@ -198,7 +191,7 @@ public class LocacaoServiceTest {
 		exception.expectMessage("Problemas com SPC, tente novamente");
 
 		// acao
-		service.alugarFilme(usuario, filmes); 
+		service.alugarFilme(usuario, filmes);
 
 	}
 
@@ -220,19 +213,18 @@ public class LocacaoServiceTest {
 		error.checkThat(locacaoRetornada.getDataRetorno(), ehHojeComDiferencaDias(3));
 	}
 
-	
 	@Test
 	public void deveCalcularValorLocacao() throws Exception {
 		// Cenário
 		List<Filme> filmes = Arrays.asList(umFilme().agora());
-		
-		//Ação
+
+		// Ação
 		Class<LocacaoService> clazz = LocacaoService.class;
 		Method metodo = clazz.getDeclaredMethod("calcularValorLocacao", List.class);
 		metodo.setAccessible(true);
 		Double valor = (Double) metodo.invoke(service, filmes);
-		
-		//Verificação
+
+		// Verificação
 		Assert.assertThat(valor, is(4.0));
 	}
 }

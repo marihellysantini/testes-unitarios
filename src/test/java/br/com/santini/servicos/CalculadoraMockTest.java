@@ -35,11 +35,11 @@ public class CalculadoraMockTest {
 		Mockito.doNothing().when(calculadoraSpy).imprime();
 
 		// O padrão do mock é que se não houver expectativa retornará zero.
-		System.out.println(calculadoraMock.somar(1, 3));
+		// System.out.println(calculadoraMock.somar(1, 3));
 
 		// Já o spy, se não tiver expectativa irá chamar o método real e retornará o
 		// valor calculado.
-		System.out.println(calculadoraSpy.somar(1, 3));
+		// System.out.println(calculadoraSpy.somar(1, 3));
 
 		// Caso desejar forçar que o mock chame o método, podemos usar o seguinte:
 		Mockito.when(calculadoraMock.somar(1, 2)).thenCallRealMethod();
