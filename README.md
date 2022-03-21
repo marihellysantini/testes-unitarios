@@ -10,7 +10,7 @@ Objetivos:
 * Evolução do projeto com a segurança de uma bateria de testes unitários de regressão;
 * Obtenção de métricas de qualidade a partir dos testes;
 * Criar builders de objetos para centralizar a criação de entidades;
-* Adicição de testes unitários em projetos legados.
+* Adição de testes unitários em projetos legados.
 
 Tecnologias
 
